@@ -1,0 +1,15 @@
+{
+    "name": "commnerd/laravel-checklists",
+    "description": "Manage your day with checklists generated from various sources.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Michael J. Miller",
+            "email": "commnerd@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^4.0"
+    }
+}
