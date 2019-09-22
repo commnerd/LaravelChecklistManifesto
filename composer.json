@@ -1,6 +1,6 @@
 {
     "name": "commnerd/laravel-checklists",
-    "description": "Manage your day with checklists generated from various sources.",
+    "description": "Manage your life with checklists generated from various sources.",
     "type": "library",
     "authors": [
         {
@@ -11,5 +11,20 @@
     "require": {},
     "require-dev": {
         "orchestra/testbench": "^4.0"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "Checklists\\": "src/lib"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Checklists\\Providers\\ChecklistServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Checklists\\Facade"
+            }
+        }
+    },
 }

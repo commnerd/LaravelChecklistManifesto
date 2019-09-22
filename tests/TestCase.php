@@ -7,6 +7,6 @@ class TestCase extends OrchestraTestCase
 {
     protected function getPackageProviders($app)
     {
-        return ['Acme\AcmeServiceProvider'];
+        return ['Checklists\ChecklistServiceProvider'];
     }
 }

@@ -1,5 +1,10 @@
 <?php
 
 return [
+    'scaffolding' => [
 
+    ],
+    'checklist' => [
+
+    ],
 ];
