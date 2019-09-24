@@ -15,6 +15,8 @@ class CreatePasswordResetsTable extends Migration
     {
         Schema::create('checklists_checklist', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('scaffolding_id')->unsigned()->nullable();
+            $table->foreign('scaffolding_id')->references('id')->on('checklists_scaffolding');
             $table->string('type');
             $table->string('line');
             $table->timestamps();

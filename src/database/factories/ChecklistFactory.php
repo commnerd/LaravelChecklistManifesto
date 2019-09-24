@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use Checklists\Checklist;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
-    static $password;
-
+$factory->define(Checklist::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'scaffolding_id' => Scaffolding::all()->random()->id,
+        'type' => $faker->name,
+        'line' => $faker->unique()->safeEmail,
     ];
 });

@@ -3,8 +3,8 @@
 namespace Checklists\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Checklists\Models\Scaffolding;
-use Checklists\Models\Checklist;
+use Checklists\Interfaces\Scaffolding;
+use Checklists\Interfaces\Checklist;
 
 class ChecklistServiceProvider extends ServiceProvider
 {

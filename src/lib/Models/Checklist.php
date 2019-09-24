@@ -1,9 +1,7 @@
 <?php
 
-namespace Checklists;
+use Illuminate\Database\Eloquent\Model;
 
-interface Checklist {
-    public function getId();
-    public function getType();
-    public function getLine();
+class Checklist extends Model {
+    
 }
