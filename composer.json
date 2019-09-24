@@ -13,8 +13,17 @@
         "orchestra/testbench": "^4.0"
     },
     "autoload": {
+        "classmap": [
+            "src/database/seeds",
+            "src/database/factories"
+        ],
         "psr-4": {
             "Checklists\\": "src/lib"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "extra": {
@@ -26,5 +35,5 @@
                 "Debugbar": "Checklists\\Facade"
             }
         }
-    },
+    }
 }
