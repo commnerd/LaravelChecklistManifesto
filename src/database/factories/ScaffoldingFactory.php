@@ -16,7 +16,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Scaffolding::class, function (Faker $faker) {
     return [
-        'type' => $faker->name,
-        'line' => $faker->unique()->safeEmail,
+        'type' => $faker->text,
+        'line' => $faker->text,
     ];
 });

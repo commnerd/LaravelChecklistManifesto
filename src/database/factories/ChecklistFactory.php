@@ -17,8 +17,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Checklist::class, function (Faker $faker) {
     return [
-        'scaffolding_id' => Scaffolding::all()->random()->id,
-        'type' => $faker->name,
-        'line' => $faker->unique()->safeEmail,
+        'type' => $faker->text,
+        'line' => $faker->text,
     ];
 });

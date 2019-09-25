@@ -2,9 +2,7 @@
 
 namespace Checklists\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Checklist extends Model {
+class Checklist extends Scaffolding {
     public function __construct($attributes = array())  {
         parent::__construct($attributes);
 
