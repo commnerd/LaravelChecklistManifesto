@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Checklists\Checklist;
+use Checklists\Models\Checklist;
 use Tests\TestCase;
 
 class ChecklistTest extends TestCase {
@@ -13,7 +13,7 @@ class ChecklistTest extends TestCase {
      * @return void
      */
     public function testChecklistFactory() {
-        $checklist = factory(Checklist::class);
+        $checklist = factory(Checklist::class)->make();
 
         $this->assertTrue($checklist instanceof Checklist);
     }

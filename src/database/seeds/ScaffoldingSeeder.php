@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use Checklists\Scaffolding;
+use Checklists\Models\Scaffolding;
 
 class ScaffoldingSeeder extends Seeder
 {
@@ -13,6 +13,6 @@ class ScaffoldingSeeder extends Seeder
      */
     public function run()
     {
-        factory(Scaffolding::class)->save();
+        factory(Scaffolding::class)->create();
     }
 }

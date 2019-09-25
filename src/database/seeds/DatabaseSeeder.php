@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Checklists\Scaffolding;
-use Checklists\Checklist;
+use Checklists\Models\Scaffolding;
+use Checklists\Models\Checklist;
 
 class DatabaseSeeder extends Seeder
 {

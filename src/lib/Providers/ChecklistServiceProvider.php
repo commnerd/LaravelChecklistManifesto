@@ -15,7 +15,11 @@ class ChecklistServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/config/checklists.php' => config_path('checklists.php'),
+        ]);
+        // dd(__DIR__);
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     /**
@@ -26,10 +30,10 @@ class ChecklistServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Scaffolding::class, function ($app) {
-            return new Scaffolding(config('checklists.scaffolding'));
+            return new Scaffolding;
         });
         $this->app->singleton(Checklist::class, function ($app) {
-            return new Checklist(config('checklists.checklist'));
+            return new Checklist;
         });
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use Checklists\Checklist;
+use Checklists\Models\Checklist;
 
 class ChecklistSeeder extends Seeder
 {
@@ -13,6 +13,6 @@ class ChecklistSeeder extends Seeder
      */
     public function run()
     {
-        factory(Checklist::class)->save();
+        factory(Checklist::class)->create();
     }
 }

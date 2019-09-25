@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScaffoldingTable extends Migration
+class CreateScaffoldingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateScaffoldingTable extends Migration
      */
     public function up()
     {
-        Schema::create('checklists_scaffolding', function (Blueprint $table) {
+        Schema::create('checklists_scaffoldings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type');
             $table->string('line');
@@ -28,6 +28,6 @@ class CreateScaffoldingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checklists_scaffolding');
+        Schema::dropIfExists('checklists_scaffoldings');
     }
 }

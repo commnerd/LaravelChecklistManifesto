@@ -1,7 +1,7 @@
 <?php
 
+use Checklists\Models\Scaffolding;
 use Faker\Generator as Faker;
-use Checklists\Scaffolding;
 
 /*
 |--------------------------------------------------------------------------

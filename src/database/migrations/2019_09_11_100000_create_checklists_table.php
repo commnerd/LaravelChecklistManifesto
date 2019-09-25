@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePasswordResetsTable extends Migration
+class CreateChecklistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('checklists_checklist', function (Blueprint $table) {
+        Schema::create('checklists_checklists', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('scaffolding_id')->unsigned()->nullable();
-            $table->foreign('scaffolding_id')->references('id')->on('checklists_scaffolding');
+            $table->foreign('scaffolding_id')->references('id')->on('checklists_scaffoldings');
             $table->string('type');
             $table->string('line');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checklists_checklist');
+        Schema::dropIfExists('checklists_checklists');
     }
 }
