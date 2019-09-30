@@ -13,8 +13,8 @@ class ScaffoldingControllerTest extends TestCase {
      * @return void
      */
     public function testScaffoldingIndex() {
-        $scaffolding = factory(Scaffolding::class)->make();
+        $response = $this->get(route('scaffolding.index'));
 
-        $this->assertTrue($scaffolding instanceof Scaffolding);
+        dd($response);
     }
 }

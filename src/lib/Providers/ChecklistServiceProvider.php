@@ -18,8 +18,10 @@ class ChecklistServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/checklists.php' => config_path('checklists.php'),
         ]);
-        // dd(__DIR__);
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+
+        $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 
     /**

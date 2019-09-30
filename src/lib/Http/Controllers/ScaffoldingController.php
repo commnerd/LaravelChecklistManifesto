@@ -2,9 +2,9 @@
 
 namespace Lib\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Lib\Models\Scaffolding;
 
 class ScaffoldingController extends Controller
 {
@@ -15,7 +15,7 @@ class ScaffoldingController extends Controller
      */
     public function index(): JsonResponse
     {
-        //
+        return response()->json(Scaffolding::paginate(self::PAGE_COUNT));
     }
 
     /**
@@ -26,7 +26,7 @@ class ScaffoldingController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        //
+        return response()->json(Checklist::create($request->all())->array());
     }
 
     /**
@@ -37,7 +37,7 @@ class ScaffoldingController extends Controller
      */
     public function show($id): JsonResponse
     {
-        //
+        return response()->json(Scaffolding::firstOrFail($id)->array());
     }
 
     /**
@@ -45,11 +45,12 @@ class ScaffoldingController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id): JsonResponse
     {
-        //
+        return response()->json(Scaffolding::firstOrFail($id)->array());
     }
 
     /**
@@ -60,6 +61,6 @@ class ScaffoldingController extends Controller
      */
     public function destroy($id): JsonResponse
     {
-        //
+        return response()->json(Scaffolding::findOrFail($id)->delete());
     }
 }
