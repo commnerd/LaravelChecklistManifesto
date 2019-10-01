@@ -13,7 +13,7 @@ class CreateChecklistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('checklists_checklists', function (Blueprint $table) {
+        Schema::create(config('checklists.checklist.db_table'), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('scaffolding_id')->unsigned()->nullable();
             $table->foreign('scaffolding_id')->references('id')->on('checklists_scaffoldings');
