@@ -20,15 +20,13 @@ class Scaffolding extends Model {
     const TYPE_CHECK  = "Check";
 
     /**
-     * The table associated with the model.
+     * Get the table associated with the model.
      *
-     * @var string
+     * @return string
      */
-    protected $table;
-
-    public function __construct(array $attributes = []) {
-        parent::__construct($attributes);
-
-        $this->table = config('checklists.scaffolding.db_name');
+    public function getTable(): string
+    {
+        return config('checklists.scaffolding.db_table');
     }
+
 }

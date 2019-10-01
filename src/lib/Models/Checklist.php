@@ -3,9 +3,14 @@
 namespace Checklists\Models;
 
 class Checklist extends Scaffolding {
-    public function __construct($attributes = array())  {
-        parent::__construct($attributes);
 
-        $this->table = config('checklists.checklist.db_table');
+    /**
+     * Get the table associated with the model.
+     *
+     * @return string
+     */
+    public function getTable(): string
+    {
+        return config('checklists.checklist.db_table');
     }
 }

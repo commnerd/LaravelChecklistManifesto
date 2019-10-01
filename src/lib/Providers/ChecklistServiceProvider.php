@@ -9,8 +9,6 @@ use Illuminate\Routing\Router;
 
 class ChecklistServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'Checklists\Http\Controllers';
-
     /**
      * Bootstrap any application services.
      *
@@ -19,7 +17,7 @@ class ChecklistServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config/checklists.php' => config_path('checklists.php'),
+            __DIR__.'/../../config/checklists.php' => config_path('checklists.php'),
         ]);
 
         $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
@@ -34,20 +32,20 @@ class ChecklistServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/checklists.php', 'checklists'
+        );
         $this->app->singleton(Scaffolding::class, function ($app) {
             return new Scaffolding;
         });
         $this->app->singleton(Checklist::class, function ($app) {
             return new Checklist;
         });
-
-        $this->mapRoutes($this->app->router);
+        $this->mapRoutes();
     }
 
-    protected function mapRoutes(Router $router)
+    protected function mapRoutes()
     {
-        $router->group(['namespace' => $this->namespace], function($router) {
-            require (__DIR__ . '/../../routes/api.php');
-        });
+        require (__DIR__ . '/../../routes/api.php');
     }
 }
