@@ -1,10 +1,10 @@
 <?php
 
-namespace Lib\Http\Controllers;
+namespace Checklists\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Checklists\Models\Checklist;
 use Illuminate\Http\Request;
-use Lib\Models\Checklist;
 
 class ChecklistController extends Controller {
 

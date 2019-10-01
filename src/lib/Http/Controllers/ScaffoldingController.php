@@ -1,10 +1,10 @@
 <?php
 
-namespace Lib\Http\Controllers;
+namespace Checklists\Http\Controllers;
 
+use Checklists\Models\Scaffolding;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Lib\Models\Scaffolding;
 
 class ScaffoldingController extends Controller
 {

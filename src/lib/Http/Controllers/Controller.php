@@ -1,11 +1,11 @@
 <?php
 
-namespace Lib\Http\Controllers;
+namespace Checklists\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\JsonResponse;
+use Checklists\Models\Checklist;
 use Illuminate\Http\Request;
-use Lib\Models\Checklist;
 
 class Controller extends BaseController {
 
