@@ -135,4 +135,16 @@ abstract class ApiBaseTest extends TestCase {
          }
      }
 
+     /**
+      * Test destroy endpoint
+      *
+      * @return void
+      */
+     public function testDestroyElement() {
+         $element = factory($this->model)->create();
+
+         $response = $this->delete(route("{$this->resourceName}.destroy", [$element]));
+
+         $response->assertSuccessful();
+     }
 }
