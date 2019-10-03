@@ -15,6 +15,6 @@ class ScaffoldingControllerTest extends TestCase {
     public function testScaffoldingIndex() {
         $response = $this->get(route('scaffolding.index'));
 
-        dd($response);
+        $response->assertSuccessful();
     }
 }
