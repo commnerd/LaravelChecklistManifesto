@@ -26,7 +26,7 @@ class ScaffoldingController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        return response()->json(Checklist::create($request->all())->array());
+        return response()->json(Scaffolding::create($request->all())->toArray());
     }
 
     /**

@@ -20,6 +20,13 @@ class Scaffolding extends Model {
     const TYPE_CHECK  = "Check";
 
     /**
+     * Fillable properties for Scaffolding
+     *
+     * @var array
+     */
+    protected $fillable = ['type', 'line'];
+
+    /**
      * Get the table associated with the model.
      *
      * @return string
