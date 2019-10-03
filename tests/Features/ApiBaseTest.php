@@ -51,7 +51,7 @@ abstract class ApiBaseTest extends TestCase {
     }
 
     /**
-     * Test scaffolding index endpoint with PAGE_COUNT - 1 scaffoldings
+     * Test index endpoint with PAGE_COUNT - 1 elements
      *
      * @return void
      */
@@ -68,11 +68,11 @@ abstract class ApiBaseTest extends TestCase {
     }
 
     /**
-     * Test scaffolding index endpoint with paged scaffoldings
+     * Test index endpoint with paged multi-page elements
      *
      * @return void
      */
-    public function testScaffoldingIndexWithPagedScaffoldings() {
+    public function testIndexWithPagedElements() {
         factory($this->model, Controller::PAGE_COUNT * 2)->create();
 
         $response = $this->get(route("{$this->resourceName}.index"));
@@ -85,11 +85,11 @@ abstract class ApiBaseTest extends TestCase {
     }
 
     /**
-     * Test scaffolding create endpoint
+     * Test create endpoint
      *
      * @return void
      */
-    public function testScaffoldingCreation() {
+    public function testCreateElement() {
         $element = factory($this->model)->make();
 
         $response = $this->post(route("{$this->resourceName}.store"), $element->toArray());
@@ -100,5 +100,39 @@ abstract class ApiBaseTest extends TestCase {
 
         $this->assertEquals(1, $content->id);
     }
+
+    /**
+     * Test show endpoint
+     *
+     * @return void
+     */
+    public function testShowElement() {
+        $element = factory($this->model)->create();
+
+        $response = $this->get(route("{$this->resourceName}.show", [$element]));
+
+        $response->assertSuccessful();
+    }
+
+    /**
+     * Test update endpoint
+     *
+     * @return void
+     */
+     public function testUpdateElement() {
+         $element = factory($this->model)->create();
+         $elementB = factory($this->model)->make()->toArray();
+
+         $response = $this->put(route("{$this->resourceName}.update", [$element]), $elementB);
+
+         $response->assertSuccessful();
+
+         $class = $this->model;
+         $elementA = $class::findOrFail($element->id);
+
+         foreach($elementB as $key => $val) {
+             $this->assertEquals($val, $elementA->{$key});
+         }
+     }
 
 }

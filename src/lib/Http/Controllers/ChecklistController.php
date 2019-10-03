@@ -37,7 +37,7 @@ class ChecklistController extends Controller {
      */
     public function show($id): JsonResponse
     {
-        return response()->json(Checklist::firstOrFail($id)->array());
+        return response()->json(Checklist::firstOrFail($id)->toArray());
     }
 
     /**
@@ -50,7 +50,7 @@ class ChecklistController extends Controller {
      */
     public function update(Request $request, $id): JsonResponse
     {
-        return response()->json(Checklist::firstOrFail($id)->array());
+        return response()->json(Checklist::findOrFail($id)->update($request->all()));
     }
 
     /**

@@ -8,6 +8,6 @@ class ChecklistControllerTest extends ApiBaseTest {
 
     protected $model = Checklist::class;
 
-    protected $resourceName = "checklist";
+    protected $resourceName = "checklists";
 
 }

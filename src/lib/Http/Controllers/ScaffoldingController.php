@@ -37,7 +37,7 @@ class ScaffoldingController extends Controller
      */
     public function show($id): JsonResponse
     {
-        return response()->json(Scaffolding::firstOrFail($id)->array());
+        return response()->json(Scaffolding::findOrFail($id)->toArray());
     }
 
     /**
@@ -50,7 +50,7 @@ class ScaffoldingController extends Controller
      */
     public function update(Request $request, $id): JsonResponse
     {
-        return response()->json(Scaffolding::firstOrFail($id)->array());
+        return response()->json(Scaffolding::findOrFail($id)->update($request->all()));
     }
 
     /**
