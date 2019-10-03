@@ -12,4 +12,4 @@
 */
 
 Route::resource('scaffolding', '\Checklists\Http\Controllers\ScaffoldingController')->except(['create', 'edit']);
-Route::resource('checklists', '\Checklists\Http\Controllers\ChecklistController')->except(['create', 'edit']);
+Route::resource('checklist', '\Checklists\Http\Controllers\ChecklistController')->except(['create', 'edit']);
