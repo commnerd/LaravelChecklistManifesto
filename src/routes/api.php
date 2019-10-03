@@ -11,5 +11,9 @@
 |
 */
 
-Route::resource('scaffolding', '\Checklists\Http\Controllers\ScaffoldingController')->except(['create', 'edit']);
-Route::resource('checklists', '\Checklists\Http\Controllers\ChecklistController')->except(['create', 'edit']);
+Route::namespace('Checklists\Http\Controllers\Api\V1')
+    ->prefix('checklists/api/v1')
+    ->name('checklists.api.v1.')->group(function() {
+    Route::resource('scaffolding', 'ScaffoldingController')->except(['create', 'edit']);
+    Route::resource('checklists', 'ChecklistController')->except(['create', 'edit']);
+});
