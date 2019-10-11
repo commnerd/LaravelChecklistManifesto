@@ -10,7 +10,8 @@
     ],
     "require": {},
     "require-dev": {
-        "orchestra/testbench": "^4.0"
+        "orchestra/testbench": "^4.2",
+        "orchestra/testbench-dusk": "^4.2"
     },
     "autoload": {
         "classmap": [
