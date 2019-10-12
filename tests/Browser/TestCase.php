@@ -15,6 +15,18 @@ class TestCase extends OrchestraTestCase
     protected static $baseServePort = 9000;
 
     /**
+     * Define environment setup.
+     *
+     * @param  Illuminate\Foundation\Application  $app
+     *
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'sqlite');
+    }
+
+    /**
      * setUp the test harness
      *
      * @return void

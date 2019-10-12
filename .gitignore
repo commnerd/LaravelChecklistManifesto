@@ -1,5 +1,6 @@
 /node_modules
 /tests/Browser/screenshots
+/tests/Browser/console
 /vendor
 .DS_Store
 npm-debug.log

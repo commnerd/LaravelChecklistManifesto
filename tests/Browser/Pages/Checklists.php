@@ -13,7 +13,7 @@ class Checklists extends Page
      */
     public function url()
     {
-        return 'checklists';
+        return '/checklists';
     }
 
     /**
