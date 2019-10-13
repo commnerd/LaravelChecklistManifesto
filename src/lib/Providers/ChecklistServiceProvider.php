@@ -19,7 +19,12 @@ class ChecklistServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/checklists.php' => config_path('checklists.php'),
-        ]);
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../../../dist/css/checklists.css' => public_path('vendor/css/checklists.css'),
+            __DIR__.'/../../../dist/js/checklists.css' => public_path('vendor/js/checklists.js'),
+        ], 'public');
 
         $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');

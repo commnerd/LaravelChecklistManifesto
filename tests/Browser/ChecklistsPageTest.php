@@ -19,4 +19,17 @@ class ChecklistsPageTest extends TestCase
             $browser->visit(new ChecklistsPage);
         });
     }
+
+    /**
+     * A basic vue initialization test
+     *
+     * @return void
+     */
+    public function testChecklistsChecklistVueDisplay()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage);
+            // $response->assertSee('test');
+        });
+    }
 }

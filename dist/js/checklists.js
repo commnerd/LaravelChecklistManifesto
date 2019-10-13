@@ -93,7 +93,12 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+var checklist = new Vue({
+  el: 'checklist',
+  data: {
+    content: "test"
+  }
+});
 
 /***/ }),
 

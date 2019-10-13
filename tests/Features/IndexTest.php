@@ -6,7 +6,8 @@ use Checklists\Models\Checklist;
 
 class IndexTest extends TestCase {
 
-    public function testIndexPageLoad() {
+    public function testIndexPageLoad()
+    {
         $response = $this->get(route('checklists'));
 
         $response->assertSuccessful();
