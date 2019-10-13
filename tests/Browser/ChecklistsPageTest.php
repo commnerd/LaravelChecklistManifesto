@@ -29,7 +29,7 @@ class ChecklistsPageTest extends TestCase
     {
         $this->browse(function (Browser $browser) {
             $response = $browser->visit(new ChecklistsPage);
-            // $response->assertSee('test');
+            $response->assertSee('test');
         });
     }
 }
