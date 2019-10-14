@@ -1,8 +1,10 @@
-var Vue = require("vue");
+import Vue from "vue";
+import ChecklistLine from "./Components/ChecklistLine";
 
-let checklist = new Vue({
+new Vue({
     el: 'checklist',
-    data: {
-        content: "test"
+    template: '<div><checklist-line /></div>',
+    components: {
+        ChecklistLine
     }
 })

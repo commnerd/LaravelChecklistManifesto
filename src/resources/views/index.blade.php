@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="/vendor/css/checklists.css">
     </head>
     <body>
-        <checklist>@{{ content }}</checklist>
+        <checklist context="scaffolding"></checklist>
         <script async src="/vendor/js/checklists.js"></script>
     </body>
 </html>
