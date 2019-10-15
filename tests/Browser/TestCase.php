@@ -36,7 +36,7 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
 
-        OrchestraOptions::withoutUI();
+        OrchestraOptions::withUI();
 
         if(!is_dir(public_path('/vendor'))) {
             mkdir(public_path('/vendor', 0644, true));

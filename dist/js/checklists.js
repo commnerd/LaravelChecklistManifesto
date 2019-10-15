@@ -99,13 +99,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'checklist-line',
-  data: function data() {
-    return {
-      constents: 'test'
-    };
-  }
+  name: 'checklist-line'
 });
 
 /***/ }),
@@ -593,9 +591,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("test")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("input", { attrs: { type: "checkbox" } }),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "text" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -12709,15 +12718,14 @@ module.exports = g;
 /*!**************************************************************!*\
   !*** ./src/resources/assets/js/Components/ChecklistLine.vue ***!
   \**************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChecklistLine_vue_vue_type_template_id_dc777a04___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistLine.vue?vue&type=template&id=dc777a04& */ "./src/resources/assets/js/Components/ChecklistLine.vue?vue&type=template&id=dc777a04&");
 /* harmony import */ var _ChecklistLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistLine.vue?vue&type=script&lang=js& */ "./src/resources/assets/js/Components/ChecklistLine.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ChecklistLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ChecklistLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -12747,7 +12755,7 @@ component.options.__file = "src/resources/assets/js/Components/ChecklistLine.vue
 /*!***************************************************************************************!*\
   !*** ./src/resources/assets/js/Components/ChecklistLine.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12791,7 +12799,7 @@ __webpack_require__.r(__webpack_exports__);
 
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: 'checklist',
-  template: '<div><checklist-line /></div>',
+  template: '<div><checklist-line v-for="(line, index)" :key="index" /></div>',
   components: {
     ChecklistLine: _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__["default"]
   }

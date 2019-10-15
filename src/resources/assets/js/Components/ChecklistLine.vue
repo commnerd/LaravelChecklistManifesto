@@ -1,14 +1,12 @@
 <template>
-    <div>test</div>
+    <div>
+        <input type="checkbox" />
+        <input type="text" />
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'checklist-line',
-    data: function() {
-        return {
-            constents: 'test'
-        };
-    }
+    name: 'checklist-line'
 }
 </script>
