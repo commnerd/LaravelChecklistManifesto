@@ -104,12 +104,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'checklist-line',
-  props: ['checked'],
   data: function data() {
     return {
       checked: false,
       line: ''
     };
+  },
+  methods: {
+    updateLine: function updateLine() {
+      this.$emit('line-update', {
+        checked: this.checked,
+        line: this.line
+      });
+    }
   }
 });
 
@@ -608,7 +615,7 @@ var render = function() {
           expression: "checked"
         }
       ],
-      attrs: { type: "checkbox", name: _vm.id },
+      attrs: { type: "checkbox" },
       domProps: {
         checked: Array.isArray(_vm.checked)
           ? _vm._i(_vm.checked, null) > -1
@@ -635,7 +642,29 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("input", { attrs: { type: "text" }, domProps: { value: _vm.line } })
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.line,
+          expression: "line"
+        }
+      ],
+      attrs: { type: "text" },
+      domProps: { value: _vm.line },
+      on: {
+        keyup: function($event) {
+          return _vm.updateLine()
+        },
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.line = $event.target.value
+        }
+      }
+    })
   ])
 }
 var staticRenderFns = []
@@ -12833,7 +12862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var checklist = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: 'checklist',
-  template: '<div><checklist-line v-for="(line, index) in lineItems" name="line[]" :key="index" /></div>',
+  template: '<div><checklist-line v-for="(line, index) in lineItems" name="line[]" :key="index" @line-update="update($event, index)" /></div>',
   components: {
     ChecklistLine: _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -12841,6 +12870,22 @@ var checklist = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return {
       lineItems: [{}]
     };
+  },
+  methods: {
+    update: function update(lineItem, index) {
+      console.log(this.lineItems[0]);
+      this.lineItems[index] = lineItem;
+
+      if (index == this.lineItems.length - 1 && this.lineItems[index].line.length > 0) {
+        this.lineItems.push({});
+        return;
+      }
+
+      if (this.lineItems.length > 1 && this.lineItems[index].line.length == 0) {
+        this.lineItems.splice(index, 1);
+        return;
+      }
+    }
   }
 });
 

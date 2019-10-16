@@ -48,4 +48,72 @@ class ChecklistsPageTest extends TestCase
                 ->assertVue('checked', true, '.line-item:first-of-type');
         });
     }
+
+    /**
+     * A basic line item update test
+     *
+     * @return void
+     */
+    public function testLineItemUpdate()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVisible('.line-item:first-of-type')
+                ->keys('.line-item:first-of-type input[type="text"]', 'foo')
+                ->assertVue('line', 'foo', '.line-item:first-of-type');
+        });
+    }
+
+    /**
+     * A basic line item addition test
+     *
+     * @return void
+     */
+    public function testNewLineItemOnLastLineItemUpdate()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVisible('.line-item:first-of-type')
+                ->keys('.line-item:first-of-type input[type="text"]', 'foo')
+                ->assertVue('line', 'foo', '.line-item:first-of-type')
+                ->assertVue('line', '', '.line-item:last-of-type');
+
+        });
+    }
+
+    /**
+     * A basic second line item addition test
+     *
+     * @return void
+     */
+    public function testSecondNewLineItemOnLastLineItemUpdate()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVisible('.line-item:first-of-type')
+                ->keys('.line-item:first-of-type input[type="text"]', 'foo')
+                ->keys('.line-item:nth-of-type(2) input[type="text"]', 'bar')
+                ->assertVue('line', 'bar', '.line-item:nth-of-type(2)')
+                ->assertVue('line', '', '.line-item:last-of-type');
+        });
+    }
+
+    /**
+     * A basic line item removal test
+     *
+     * @return void
+     */
+    public function testLineItemRemoval()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVisible('.line-item:first-of-type')
+                ->keys('.line-item:first-of-type input[type="text"]', 'foo')
+                ->assertVue('line', '', '.line-item:last-of-type')
+                ->keys('.line-item:nth-of-type(2) input[type="text"]', 'bar')
+                ->assertVue('line', 'bar', '.line-item:nth-of-type(2)')
+                ->assertVue('line', '', '.line-item:last-of-type')
+                ->keys('.line-item:first-of-type input[type="text"]', ["{backspace}","{backspace}","{backspace}"]);
+        });
+    }
 }
