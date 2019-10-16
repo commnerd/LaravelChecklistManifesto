@@ -33,4 +33,19 @@ class ChecklistsPageTest extends TestCase
             $response->assertVisible('input[type="text"]');
         });
     }
+
+    /**
+     * A basic checkbox test
+     *
+     * @return void
+     */
+    public function testCheckboxUpdate()
+    {
+        $this->browse(function (Browser $browser) {
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVisible('.line-item:first-of-type')
+                ->click('.line-item:first-of-type input[type="checkbox"]')
+                ->assertVue('checked', true, '.line-item:first-of-type');
+        });
+    }
 }

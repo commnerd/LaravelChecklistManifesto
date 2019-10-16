@@ -103,7 +103,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'checklist-line'
+  name: 'checklist-line',
+  props: ['checked'],
+  data: function data() {
+    return {
+      checked: false,
+      line: ''
+    };
+  }
 });
 
 /***/ }),
@@ -591,20 +598,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "line-item" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.checked,
+          expression: "checked"
+        }
+      ],
+      attrs: { type: "checkbox", name: _vm.id },
+      domProps: {
+        checked: Array.isArray(_vm.checked)
+          ? _vm._i(_vm.checked, null) > -1
+          : _vm.checked
+      },
+      on: {
+        change: function($event) {
+          var $$a = _vm.checked,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false
+          if (Array.isArray($$a)) {
+            var $$v = null,
+              $$i = _vm._i($$a, $$v)
+            if ($$el.checked) {
+              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+            } else {
+              $$i > -1 &&
+                (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+            }
+          } else {
+            _vm.checked = $$c
+          }
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", { attrs: { type: "text" }, domProps: { value: _vm.line } })
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("input", { attrs: { type: "checkbox" } }),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "text" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -12797,11 +12831,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/ChecklistLine */ "./src/resources/assets/js/Components/ChecklistLine.vue");
 
 
-new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+var checklist = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: 'checklist',
-  template: '<div><checklist-line v-for="(line, index)" :key="index" /></div>',
+  template: '<div><checklist-line v-for="(line, index) in lineItems" name="line[]" :key="index" /></div>',
   components: {
     ChecklistLine: _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      lineItems: [{}]
+    };
   }
 });
 

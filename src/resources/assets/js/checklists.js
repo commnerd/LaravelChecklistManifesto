@@ -1,10 +1,17 @@
 import Vue from "vue";
 import ChecklistLine from "./Components/ChecklistLine";
 
-new Vue({
+let checklist = new Vue({
     el: 'checklist',
-    template: '<div><checklist-line v-for="(line, index)" :key="index" /></div>',
+    template: '<div><checklist-line v-for="(line, index) in lineItems" name="line[]" :key="index" /></div>',
     components: {
         ChecklistLine
+    },
+    data: function() {
+        return {
+            lineItems: [
+                {}
+            ]
+        }
     }
 })
