@@ -86,6 +86,53 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChecklistLine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistLine */ "./src/resources/assets/js/Components/ChecklistLine.vue");
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'checklist',
+  props: {
+    context: String
+  },
+  components: {
+    ChecklistLine: _ChecklistLine__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      lineItems: [{}]
+    };
+  },
+  methods: {
+    update: function update(lineItem, index) {
+      this.lineItems[index] = lineItem;
+
+      if (index == this.lineItems.length - 1 && this.lineItems[index].line.length > 0) {
+        this.lineItems.push({});
+        return;
+      }
+
+      if (this.lineItems.length > 1 && this.lineItems[index].line.length == 0) {
+        this.lineItems.splice(index, 1);
+        return;
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/resources/assets/js/Components/ChecklistLine.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./src/resources/assets/js/Components/ChecklistLine.vue?vue&type=script&lang=js& ***!
@@ -587,6 +634,44 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (this && this.clearImmediate);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.lineItems, function(line, index) {
+      return _c("checklist-line", {
+        key: index,
+        attrs: { name: "line[]" },
+        on: {
+          "line-update": function($event) {
+            return _vm.update($event, index)
+          }
+        }
+      })
+    }),
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -12777,6 +12862,75 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./src/resources/assets/js/Components/Checklist.vue":
+/*!**********************************************************!*\
+  !*** ./src/resources/assets/js/Components/Checklist.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checklist.vue?vue&type=template&id=abd77c2c& */ "./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c&");
+/* harmony import */ var _Checklist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checklist.vue?vue&type=script&lang=js& */ "./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Checklist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/resources/assets/js/Components/Checklist.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checklist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Checklist.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./src/resources/assets/js/Components/Checklist.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checklist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c&":
+/*!*****************************************************************************************!*\
+  !*** ./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Checklist.vue?vue&type=template&id=abd77c2c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/resources/assets/js/Components/Checklist.vue?vue&type=template&id=abd77c2c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checklist_vue_vue_type_template_id_abd77c2c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./src/resources/assets/js/Components/ChecklistLine.vue":
 /*!**************************************************************!*\
   !*** ./src/resources/assets/js/Components/ChecklistLine.vue ***!
@@ -12857,35 +13011,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/ChecklistLine */ "./src/resources/assets/js/Components/ChecklistLine.vue");
+/* harmony import */ var _Components_Checklist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Checklist */ "./src/resources/assets/js/Components/Checklist.vue");
 
 
-var checklist = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: 'checklist',
-  template: '<div><checklist-line v-for="(line, index) in lineItems" name="line[]" :key="index" @line-update="update($event, index)" /></div>',
+new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: 'body',
   components: {
-    ChecklistLine: _Components_ChecklistLine__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  data: function data() {
-    return {
-      lineItems: [{}]
-    };
-  },
-  methods: {
-    update: function update(lineItem, index) {
-      console.log(this.lineItems[0]);
-      this.lineItems[index] = lineItem;
-
-      if (index == this.lineItems.length - 1 && this.lineItems[index].line.length > 0) {
-        this.lineItems.push({});
-        return;
-      }
-
-      if (this.lineItems.length > 1 && this.lineItems[index].line.length == 0) {
-        this.lineItems.splice(index, 1);
-        return;
-      }
-    }
+    Checklist: _Components_Checklist__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 

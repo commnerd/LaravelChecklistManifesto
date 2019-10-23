@@ -17,6 +17,8 @@ class ChecklistsPageTest extends TestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit(new ChecklistsPage);
+            sleep(100);
+
         });
     }
 
@@ -114,6 +116,20 @@ class ChecklistsPageTest extends TestCase
                 ->assertVue('line', 'bar', '.line-item:nth-of-type(2)')
                 ->assertVue('line', '', '.line-item:last-of-type')
                 ->keys('.line-item:first-of-type input[type="text"]', ["{backspace}","{backspace}","{backspace}"]);
+        });
+    }
+
+    /**
+     * A basic line item removal test
+     *
+     * @return void
+     */
+    public function testChecklistContextProperty()
+    {
+        $this->browse(function (Browser $browser) {
+            sleep(100);
+            $response = $browser->visit(new ChecklistsPage)
+                ->assertVue('context', 'scaffolding', 'div:first-of-type');
         });
     }
 }
