@@ -1,3 +1,4 @@
+import { LineItemComponent } from './components/line-item/line-item.component';
 import { Component, Input, OnInit, ElementRef } from '@angular/core';
 
 @Component({
@@ -6,9 +7,11 @@ import { Component, Input, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  protected tag: string
   @Input() name: string
   @Input() api: string
+
+  protected tag: string
+  protected lineItems: Array<LineItemComponent>
 
   constructor(private ref: ElementRef) {}
 
@@ -23,5 +26,7 @@ export class AppComponent implements OnInit {
     if(this.api == undefined) {
       throw new Error(tag.charAt(0).toUpperCase() + tag.slice(1) + " tags must contain an api property.");
     }
+
+    this.lineItems = [new LineItemComponent];
   }
 }
