@@ -1,4 +1,5 @@
 import { LineItemComponent } from './components/line-item/line-item.component';
+import { LineInputComponent } from './components/line-input/line-input.component';
 import { CheckComponent } from './components/check/check.component';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
@@ -7,6 +8,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        LineInputComponent,
         LineItemComponent,
         CheckComponent,
         AppComponent

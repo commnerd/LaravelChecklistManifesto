@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CheckComponent } from '../check/check.component';
+import { LineInputComponent } from '../line-input/line-input.component';
 import { LineItemComponent } from './line-item.component';
 
 describe('LineItemComponent', () => {
@@ -10,6 +11,7 @@ describe('LineItemComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LineItemComponent,
+        LineInputComponent,
         CheckComponent
       ]
     })
