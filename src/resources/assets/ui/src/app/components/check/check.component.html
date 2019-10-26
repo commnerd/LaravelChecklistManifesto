@@ -1,4 +1,4 @@
 <label class="check-container">
-  <input type="checkbox" checked="checked">
+  <input type="checkbox" [checked]="_checked" (change)="handleChange()">
   <span class="checkmark"></span>
 </label>
