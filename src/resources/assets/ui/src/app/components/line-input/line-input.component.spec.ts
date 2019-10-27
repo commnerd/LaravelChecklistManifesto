@@ -22,4 +22,13 @@ describe('LineInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit update when updated', () => {
+    (component as any).update.subscribe(g => {
+      expect(g).toEqual("a");
+    });
+    component.ngOnInit();
+    (component as any).contents = "a";
+    component.handleChange();
+  });
 });

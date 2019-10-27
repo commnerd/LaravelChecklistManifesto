@@ -7,18 +7,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CheckComponent implements OnInit {
 
-  @Output() _emitter: EventEmitter<boolean> = new EventEmitter();
-  private _checked: boolean;
+  @Output() update: EventEmitter<boolean> = new EventEmitter<boolean>();
+  checked: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this._checked = false;
+    this.checked = false;
   }
 
   handleChange() {
-    this._checked = !this._checked;
-    this._emitter.emit(this._checked);
+    this.checked = !this.checked;
+    this.update.emit(this.checked);
   }
 
 }

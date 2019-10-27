@@ -25,7 +25,7 @@ describe('CheckComponent', () => {
 
   it('should start unchecked', () => {
     component.ngOnInit();
-    expect((component as any)._checked).toEqual(false);
+    expect((component as any).checked).toEqual(false);
   });
 
   it('should be truthy when checked', async(() => {
@@ -35,7 +35,7 @@ describe('CheckComponent', () => {
     check.click();
 
     fixture.whenStable().then(() => {
-      expect((component as any)._checked).toEqual(true);
+      expect((component as any).checked).toEqual(true);
     });
   }));
 
@@ -53,7 +53,7 @@ describe('CheckComponent', () => {
   }));
 
   it('should emit update when clicked', () => {
-    (component as any)._emitter.subscribe(g => {
+    (component as any).update.subscribe(g => {
       expect(g).toEqual(true);
     });
     component.ngOnInit();
