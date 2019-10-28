@@ -29,4 +29,11 @@ export class AppComponent implements OnInit {
 
     this.lineItems = [new LineItemComponent];
   }
+
+  contentsUpdate(contents: string) {
+    if(contents != "") {
+      console.log('err...');
+      this.lineItems.push(new LineItemComponent);
+    }
+  }
 }

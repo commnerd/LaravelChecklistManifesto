@@ -27,4 +27,20 @@ describe('LineItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should propagate check update', () => {
+    component.checkUpdate.subscribe(g => {
+      expect(g).toEqual(true);
+    });
+    component.ngOnInit();
+    component.updateCheck(true);
+  });
+
+  it('should propagate contents update', () => {
+    component.contentsUpdate.subscribe(g => {
+      expect(g).toEqual("a");
+    });
+    component.ngOnInit();
+    component.updateContents("a");
+  });
 });

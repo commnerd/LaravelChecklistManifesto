@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'line-item',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LineItemComponent implements OnInit {
 
+  @Output() checkUpdate = new EventEmitter<boolean>();
+  @Output() contentsUpdate = new EventEmitter<string>();
+  checkType: string;
+  checked: boolean;
+  contents: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateCheck(checked: boolean) {
+    this.checkUpdate.emit(checked);
+  }
+
+  updateContents(contents: string) {
+    this.contentsUpdate.emit(contents);
   }
 
 }

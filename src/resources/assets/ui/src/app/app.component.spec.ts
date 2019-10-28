@@ -56,4 +56,20 @@ describe('AppComponent', () => {
 
     expect((app as any).lineItems).toEqual([new LineItemComponent]);
   });
+
+  it('should add line item when blank line changes', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    let tag = (app as any).ref.nativeElement.tagName.toLowerCase();
+
+    (app as any).name = 'checklist name';
+    (app as any).api = '/path/to/api';
+
+    app.ngOnInit();
+
+    let lineItem = new LineItemComponent();
+    lineItem.updateContents("a");
+
+    expect(app.lineItems.length).toEqual(2);
+  });
 });
