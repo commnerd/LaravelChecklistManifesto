@@ -12,5 +12,6 @@
 */
 
 Route::namespace('Checklists\Http\Controllers')->group(function() {
-    Route::name('checklists')->get('checklists', 'IndexController@index');
+    Route::name('scaffolding.index')->get('scaffolding', 'ScaffoldingController@index');
+    Route::name('checklist.index')->get('checklists', 'ChecklistController@index');
 });

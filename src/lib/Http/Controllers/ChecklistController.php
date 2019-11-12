@@ -6,7 +6,7 @@ use Checklists\Models\Checklist;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class IndexController extends Controller {
+class ChecklistController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,6 +15,7 @@ class IndexController extends Controller {
      */
     public function index(): View
     {
-        return view('index');
+        $checklists = Checklist::paginate(self::PAGE_COUNT);
+        return view('checklist.index', compact('checklists'));
     }
 }

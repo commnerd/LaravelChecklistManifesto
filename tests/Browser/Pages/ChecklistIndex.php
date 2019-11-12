@@ -4,7 +4,7 @@ namespace Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 
-class Checklists extends Page
+class ChecklistsIndex extends Page
 {
     /**
      * Get the URL for the page.
