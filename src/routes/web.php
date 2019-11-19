@@ -12,6 +12,6 @@
 */
 
 Route::namespace('Checklists\Http\Controllers')->group(function() {
-    Route::name('scaffolding.index')->get('scaffolding', 'ScaffoldingController@index');
-    Route::name('checklist.index')->get('checklists', 'ChecklistController@index');
+    Route::resource('scaffolding', 'ScaffoldingController')->except(['edit']);
+    Route::resource('checklists', 'ChecklistController')->except(['edit']);
 });

@@ -1,10 +1,24 @@
-<!doctype html>
-<html>
-    <head>
-        <link rel="stylesheet" href="/vendor/css/checklists.css">
-    </head>
-    <body>
-        <checklist context="scaffolding"></checklist>
-        <script async src="/vendor/js/checklists.js"></script>
-    </body>
-</html>
+    <table>
+        <thead>
+            <th>
+                Scaffolding Name
+            </th>
+            <th>
+                Actions
+            </th>
+        </thead>
+        <tbody>
+        @if($scaffolding->count() > 0)
+            @foreach($scaffolding as $definition)
+                <td>
+                    {{ $definition->name }}
+                </td>
+                <td>
+                    <a href="{{ route('scaffolding.show', $definition) }}">Edit</a>
+                </td>
+            @endforeach
+        @else
+            <td colspan="2">No available scaffoldings.</td>
+        @endif
+        </tbody>
+    </table>

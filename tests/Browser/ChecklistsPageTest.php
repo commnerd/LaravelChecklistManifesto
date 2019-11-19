@@ -12,14 +12,14 @@ class ChecklistsPageTest extends TestCase
      * A basic home page load test
      *
      * @return void
-     *
+     */
     public function testChecklistsPageDisplay()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit(new ChecklistsPage);
         });
     }
-    */
+
     /**
      * A basic vue initialization test
      *
