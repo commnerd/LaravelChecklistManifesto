@@ -10,8 +10,8 @@ export class LineItemComponent implements OnInit {
   @Output() checkUpdate = new EventEmitter<boolean>();
   @Output() contentsUpdate = new EventEmitter<string>();
   checkType: string;
-  checked: boolean;
-  contents: string;
+  checked: boolean = false;
+  contents: string = "";
 
   constructor() { }
 
@@ -19,11 +19,11 @@ export class LineItemComponent implements OnInit {
   }
 
   updateCheck(checked: boolean) {
-    this.checkUpdate.emit(checked);
+      this.checkUpdate.emit(checked);
   }
 
   updateContents(contents: string) {
-    this.contentsUpdate.emit(contents);
+      this.contentsUpdate.emit(contents);
   }
 
 }

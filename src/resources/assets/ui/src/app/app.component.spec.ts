@@ -57,7 +57,7 @@ describe('AppComponent', () => {
     expect((app as any).lineItems).toEqual([new LineItemComponent]);
   });
 
-  it('should add line item when blank line changes', () => {
+  it('should add line item when last line not blank', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     let tag = (app as any).ref.nativeElement.tagName.toLowerCase();
@@ -66,10 +66,44 @@ describe('AppComponent', () => {
     (app as any).api = '/path/to/api';
 
     app.ngOnInit();
-
-    let lineItem = new LineItemComponent();
-    lineItem.updateContents("a");
+    app.updateContents(0, "a");
 
     expect(app.lineItems.length).toEqual(2);
+  });
+
+  it('should add line item only when last line not blank', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    let tag = (app as any).ref.nativeElement.tagName.toLowerCase();
+
+    (app as any).name = 'checklist name';
+    (app as any).api = '/path/to/api';
+
+    app.ngOnInit();
+    app.updateContents(0, "a");
+    app.updateContents(0, "ab");
+    expect(app.lineItems.length).toEqual(2);
+  });
+
+  it('should remove line item when blank', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    let tag = (app as any).ref.nativeElement.tagName.toLowerCase();
+
+    (app as any).name = 'checklist name';
+    (app as any).api = '/path/to/api';
+
+    let lineItems = [
+        new LineItemComponent(),
+        new LineItemComponent()
+    ];
+    lineItems[0].contents = "biz";
+    lineItems[1].contents = "baz";
+
+    app.lineItems = lineItems;
+    app.ngOnInit();
+    app.updateContents(0, "");
+
+    expect(app.lineItems.length).toEqual(1);
   });
 });

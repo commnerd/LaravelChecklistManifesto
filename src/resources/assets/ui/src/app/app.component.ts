@@ -30,10 +30,14 @@ export class AppComponent implements OnInit {
     this.lineItems = [new LineItemComponent];
   }
 
-  contentsUpdate(contents: string) {
-    if(contents != "") {
-      console.log('err...');
-      this.lineItems.push(new LineItemComponent);
-    }
+  updateContents(index: number, contents: string) {
+      this.lineItems[index].contents = contents;
+      if(this.lineItems[index].contents == "") {
+          this.lineItems.splice(index, 1);
+      }
+      let length = this.lineItems.length;
+      if(length == 0 || this.lineItems[length - 1].contents != "") {
+          this.lineItems.push(new LineItemComponent);
+      }
   }
 }

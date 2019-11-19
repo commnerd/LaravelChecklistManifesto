@@ -1,3 +1,3 @@
 <div>
-  <line-item *ngFor="let lineItem of LineItems" contentsUpdate="contentsUpdate($event)"></line-item>
+  <line-item *ngFor="let lineItem of LineItems; index as i" (contentsUpdate)="updateContents(i, $event)"></line-item>
 </div>
